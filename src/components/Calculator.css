@@ -1,0 +1,123 @@
+.parent {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    border-radius: 3px;
+    border-width: 1px 1px 4px 1px;
+    border-color: rgb(108, 104, 110);
+    border-style: solid;
+    box-shadow: rgba(0, 0, 0, .3) 1px 1px 2px 0;
+    grid-gap: 1px;
+    background-color: rgb(152, 152, 152);
+    grid-template-areas: 'result result result result' 'seven eight nine clear' 'four five six minus' 'one two three plus' 'zero zero zero equal';
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.box {
+    color: rgb(24, 24, 24);
+    cursor: pointer;
+    background-color: rgb(216, 216, 216);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tools {
+    color: #fff;
+    background-color: rgb(166, 98, 96);
+}
+
+.result {
+    position: relative;
+    grid-area: result;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: rgb(108, 104, 110);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.result .line {
+    white-space: nowrap;
+    text-align: right;
+    min-height: 20px;
+    /*flex: 0 1 auto;*/
+}
+
+.result::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    box-shadow: 20px 0 20px 8px #6d676e inset;
+}
+
+
+.div0 {
+    grid-area: zero;
+}
+
+.div1 {
+    grid-area: one;
+}
+
+.div2 {
+    grid-area: two;
+}
+
+.div3 {
+    grid-area: three;
+}
+
+.div4 {
+    grid-area: four;
+}
+
+.div5 {
+    grid-area: five;
+}
+
+.div6 {
+    grid-area: six;
+}
+
+.div7 {
+    grid-area: seven;
+}
+
+.div8 {
+    grid-area: eight;
+}
+
+.div9 {
+    grid-area: nine;
+}
+
+.div11 {
+    grid-area: clear;
+}
+
+.div12 {
+    grid-area: minus;
+}
+
+.div13 {
+    grid-area: plus;
+}
+
+.div14 {
+    grid-area: equal;
+}
