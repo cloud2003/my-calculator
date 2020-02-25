@@ -1,6 +1,7 @@
 import {Component} from "vue-property-decorator";
 import {VueComponent} from "@/shims-vue";
 import styles from "./Calculator.css?module";
+import {CalcStore} from '@/store/modules/Calculator';
 
 @Component
 export default class Calculator extends VueComponent {
@@ -14,7 +15,7 @@ export default class Calculator extends VueComponent {
     }
 
     private get isReady(): boolean {
-        return this.$store.state.isReady;
+        return CalcStore.isReady;
     }
 
     private get result(): string {
@@ -23,17 +24,17 @@ export default class Calculator extends VueComponent {
         } else {
             return eval(this.buffer.toString().slice(0, -1));
         }
-        // return this.$store.state.resultX;
+        // return CalcStore.resultX;
     }
 
     private clearResult(): void {
-        this.$store.commit('setResult', '');
+        CalcStore.SET_RESULT('');
         this.buffer = '';
     }
 
     private async equalResult(): Promise<void> {
         try {
-            await this.$store.dispatch('setResult', this.result);
+            await CalcStore.SetResult(this.result);
             this.buffer = this.result;
             this.isResult = true;
 
